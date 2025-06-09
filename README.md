@@ -41,9 +41,13 @@ Please also note that, depending on your infotainment system version, the steps 
 
 6. Start your car and wait for the infotainment to initialize.
 
-7. Once the system has initialized, you will be prompted to enter a password.  Enter "BYD6125F" (without quotes) and press OK. ![password](./screenshots/20250607_091221.png)
+7. Once the system has initialized, you will be prompted to enter a password.  Enter "BYD6125F" (without quotes) and press OK.
 
-8. You will then be able to see the list of the APKs you copied.  Tick the checkbox on the APKs you want to install and press Install. The "Success" counter at the bottom-right corner will indicate the number of apps successfully installed, while the "Failed" counter will indicate those that didn't install.  Failed installation can either mean that the APK you downloaded is corrupted, or that the BYD system does not support them. ![apks](./screenshots/20250607_091346.png)
+   ![password](./screenshots/20250607_091221.png)
+
+8. You will then be able to see the list of the APKs you copied.  Tick the checkbox on the APKs you want to install and press Install. The "Success" counter at the bottom-right corner will indicate the number of apps successfully installed, while the "Failed" counter will indicate those that didn't install.  Failed installation can either mean that the APK you downloaded is corrupted, or that the BYD system does not support them.
+
+   ![apks](./screenshots/20250607_091346.png)
 
 9. After installing them, you can press Back or Home on the navigation bar and you should see the icon/s of the app/s you installed.
 
