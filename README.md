@@ -17,7 +17,9 @@ Instructions on how to install non-market apps on your BYD Seal 5 DM-i system.
 
 Apart from installing apps through the BYD app marketplace, which offers an **extemely** limited (for now) set of apps, there are 2 unofficial ways of installing 3rd-party apps, which I will show you in this tutorial.  The 2 methods that will be shown here are, generally speaking, safe to follow.  However, as they are ***unofficial*** methods, they might affect your warranty.  So, follow at your own risk.  I take no responsibility, whatsoever, for any loss or damage incurred as a result of using and relying on the information on this tutorial.
 
-Please also note that, depending on your infotainment system version, the steps mentioned here, to install apps, may or may not work.
+Please also note that, depending on your infotainment system version, the steps mentioned here, to install apps, may or may not work.  My system has this version:
+
+![version](./screenshots/20250608_141504.png)
 
 &nbsp;
 
