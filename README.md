@@ -58,13 +58,13 @@ With this method, you will need to manually download the APK files of the apps y
 
 ## Method 2: Using the unlocked package manager
 
-1. If you haven't done so already, follow steps 1 and 2 in [Method 1](#method-1-sideloading).
+1. If you haven't done so already, follow steps 1 and 2 in [Method 1](#method-1-sideloading-wout-an-unlocked-package-manager).
 
 2. Download [CX File Explorer](https://apkpure.com/search?q=cx+file+explorer) and copy the APK to the "Third Party Apps 63" folder.
 
 3. Download the [unlocked package manager](https://workupload.com/file/EgYhyaba92E).  Unzip it and copy "PackageInstallerUnlocked.apk" into the "Third Party Apps 63" folder.
 
-4. Install **CX File Explorer** (***only***) by following steps 5-8 in [Method 1](#method-1-sideloading).
+4. Install **CX File Explorer** (***only***) by following steps 5-8 in [Method 1](#method-1-sideloading-wout-an-unlocked-package-manager).
 
    ***Warning: Do not yet install the unlocked package manager (PackageInstallerUnlocked.apk) at this point!***
 
@@ -82,7 +82,7 @@ With this method, you will need to manually download the APK files of the apps y
 
    ![Locked package installer backup](./screenshots/20250607_093118.png)
 
-8. Install the unlocked package manager (PackageInstallerUnlocked.apk) you downloaded in step 3 by following steps 5-8 in [Method 1](#method-1-sideloading).
+8. Install the unlocked package manager (PackageInstallerUnlocked.apk) you downloaded in step 3 by following steps 5-8 in [Method 1](#method-1-sideloading-wout-an-unlocked-package-manager).
 
    At this point, you should now be able to install any supported APK by just downloading them anywhere in your infotainment and clicking on the APK file.  You can even install 3rd-party app markets, like [Aurora](https://apkpure.com/aurora-store/com.aurora.store) or the [APKPure](https://apkpure.com/search?q=apkpure) app or [F-Droid](https://f-droid.org/en/), and install additional apps through them.
 
@@ -90,8 +90,12 @@ With this method, you will need to manually download the APK files of the apps y
 
 # Bonus: microG Installation
 
-The [microG project](https://microg.org/) provides an open-source re-implementation of Google’s proprietary Android user space apps and libraries.  This allows you to install and run apps (e.g. Netflix, Waze) that rely on Google's services, that may otherwise not work without these Google services.  However, not all apps will run even with microG installed.
+The [microG project](https://microg.org/) provides an open-source re-implementation of Google’s proprietary Android user space apps and libraries.  This allows you to install and run apps that rely on Google's services, that may otherwise not work without these Google services.  However, not all apps will run even with microG installed.
 
-Depending on which method you choose for installation, download and install **microG Services**, **microG Companion** and **Services Framework Proxy** found here: https://microg.org/download.html
+Depending on which method you choose for installation ([Method 1](#method-1-sideloading-wout-an-unlocked-package-manager) or [Method 2](#method-2-using-the-unlocked-package-manager)), download and install **microG Services**, **microG Companion** and **Services Framework Proxy** found here: https://microg.org/download.html
 
 ![microG files](./screenshots/Screenshot%202025-06-09%20184928.png)
+
+After installing the files, you may now install apps that require Google services to run (again, not all are supported, though).  For example, you can install **Netflix** from [Aurora](https://apkpure.com/aurora-store/com.aurora.store).
+
+&nbsp;
