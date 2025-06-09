@@ -25,9 +25,15 @@ Please also note that, depending on your infotainment system version, the steps 
 
 1. Prepare a USB flashdrive by formatting it to **FAT32** on a (Windows/Mac/Linux) computer.  Note that, especially when using Windows' built-in formatter, the FAT32 option may not appear if your flashdrive's capacity is greater than 32GB.  So you may want to use a smaller capacity flashdrive.
 
-2. In your FAT32-formatted flashdrive, create a folder named "Third Party Apps 63" (without the quotes).  *Note: This is specifically for the Philippine market.  If you're outside the Philippnes, replace "63" with your respective [country code](https://countrycode.org/philippines).* ![Third Party Apps 63](./screenshots/Screenshot%202025-06-07-133147.png)
+2. In your FAT32-formatted flashdrive, create a folder named "Third Party Apps 63" (without the quotes).
+   
+   *Note: This is specifically for the Philippine market.  If you're outside the Philippnes, replace "63" with your respective [country code](https://countrycode.org/philippines).*
+   
+   ![Third Party Apps 63](./screenshots/Screenshot%202025-06-07-133147.png)
 
-3. Copy your downloaded APKs into the "Third Party Apps 63" folder.  *Note: Be sure that you trust the source of your APKs.  One of the more popular sources of APKs is [APKPure](https://apkpure.com/).*
+3. Copy your downloaded APKs into the "Third Party Apps 63" folder.
+   
+   *Note: Be sure that you trust the source of your APKs.  One of the more popular sources of APKs is [APKPure](https://apkpure.com/).  Also note that APKPure provides 2 formats of an application package: APK and APKX.  Be sure to choose APK.  APKX is APKPure's own extension of the APK format and you will need an additional application manager to install it.*
 
 4. Eject your flashdrive from your computer.
 
