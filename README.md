@@ -90,14 +90,74 @@ With this method, you will need to manually download the APK files of the apps y
 
 &nbsp;
 
-# Bonus: microG Installation
+# Bonus: microG Installation and Set-up
 
 The [microG project](https://microg.org/) provides an open-source re-implementation of Google’s proprietary Android user space apps and libraries.  This allows you to install and run apps that rely on Google's services, that may otherwise not work without these Google services.  However, not all apps will run even with microG installed.
+
+&nbsp;
+
+## Installation
 
 Depending on which method you choose for installation ([Method 1](#method-1-sideloading-wout-an-unlocked-package-manager) or [Method 2](#method-2-using-the-unlocked-package-manager)), download and install **microG Services**, **microG Companion** and **Services Framework Proxy** found here: https://microg.org/download.html
 
 ![microG files](./screenshots/Screenshot%202025-06-09%20184928.png)
 
-After installing the files, you may now install apps that require Google services to run (again, not all are supported, though).  For example, you can install **Netflix** from [Aurora](https://apkpure.com/aurora-store/com.aurora.store).
+After installing the files, you should be able to find a "microG" icon in the launcher.
 
 &nbsp;
+
+## Set-up
+
+1. Launch microG settings by clicking on the "microG" app icon in the launcher.
+   
+   You should see this screen:
+
+   ![microG settings](./screenshots/mg_01.png)
+
+2. Click on "Self-Check".  Be sure to grant all the necessary permissions.  Note that these permissions are for the apps that use microG.  So the permissions you need to grant will vary based on which microG-dependent apps you are using.
+
+   ![microG settings](./screenshots/mg_02.png)
+
+   ***Notes:***
+   - Some apps (e.g. Google Maps and other Google apps) require the "Permission to find accounts on the device" be enabled.  However, the BYD system does not allow this.  So apps that require this permission may not work.
+   - The BYD system also does not support the "Battery optimizations ignored".  This will cause some apps to display a warning regarding battery optimization.
+
+3. Go back to the main microG settings page then click "Google device registration".
+
+   1. Enable "Register device".
+
+      ![microG register device](./screenshots/mg_03.png)
+
+   2. Click "Select profile" and choose any of the listed profiles ***EXCEPT*** "Automatic", "Native", and "Real".
+
+      ![microG select profile](./screenshots/mg_04.png)
+
+4. Go back to the main microG settings page then click "Cloud Messaging" and enable "Receive push notifications".
+
+   ![microG cloud messaging](./screenshots/mg_05.png)
+
+5. Go back to the main microG settings page then click "Google SafetyNet" and enable "Allow device attestation".
+
+   ![microG safetynet](./screenshots/mg_06.png)
+
+6. Go back to the main microG settings page then click "Play Store services".  Enable all options except "Handle billing requests" if you are not comfortable.
+
+   ![microG playstore](./screenshots/mg_07.png)
+
+7. Go back to the main microG settings page then click "Google Accounts".
+
+   1. Enable the following:
+      - Trust Google for app permissions
+      - Allow apps to find accounts
+      - Authenticate with device registration
+      - *[Optionally]* Strip device name for authentication
+
+      ![microG register device](./screenshots/mg_08.png)
+
+   2. Finally, add your Google account(s) by clicking "Add Google account".  Sign in to your Google account by following the on-screen prompts.
+
+      ![microG select profile](./screenshots/mg_09.png)
+
+&nbsp;
+
+After setting up microG, you may now install apps that require Google services to run (again, not all are supported).  For example, you can install **Netflix** from [Aurora](https://apkpure.com/aurora-store/com.aurora.store).
