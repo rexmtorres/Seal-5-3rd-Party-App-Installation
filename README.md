@@ -64,7 +64,7 @@ With this method, you will need to manually download the APK files of the apps y
 
 2. Download [CX File Explorer](https://apkpure.com/search?q=cx+file+explorer) and copy the APK to the "Third Party Apps 63" folder.
 
-3. Download the [unlocked package manager](https://workupload.com/file/EgYhyaba92E).  Unzip it and copy "PackageInstallerUnlocked.apk" into the "Third Party Apps 63" folder.
+3. Download the unlocked package manager [here](https://workupload.com/file/EgYhyaba92E) or [here](https://drive.google.com/file/d/1J59Z2kWCN2wbSZuTzp6MQF6YQ8Y9o0c0/view?usp=drivesdk).  Unzip it and copy "PackageInstallerUnlocked.apk" into the "Third Party Apps 63" folder.
 
 4. Install **CX File Explorer** (***only***) by following steps 5-8 in [Method 1](#method-1-sideloading-wout-an-unlocked-package-manager).
 
