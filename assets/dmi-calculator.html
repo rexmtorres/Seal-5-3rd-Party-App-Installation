@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DM-i Combined Fuel Economy Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap');
+        
+        :root {
+            --tw-color-primary: #1e40af;
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .input-label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .result-value {
+            font-size: 2.5rem;
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        .divider {
+            border-top: 1px dashed #e5e7eb;
+        }
+        
+        button {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen">
+    <div class="max-w-5xl mx-auto px-6 py-10">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-8">
+            <div>
+                <div class="inline-flex items-center gap-x-2 bg-white border border-slate-200 rounded-3xl px-4 py-1.5 text-sm font-medium text-slate-700">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                    </span>
+                    DM-i Hybrid System
+                </div>
+                <h1 class="text-4xl font-semibold text-slate-900 mt-3 tracking-tight">Combined Fuel Economy Calculator</h1>
+                <p class="text-slate-600 mt-2 max-w-md">Convert fuel and electrical energy inputs into gasoline-equivalent volume using the official RON-adjusted methodology for BYD DM-i systems.</p>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-x-3 text-xs uppercase tracking-widest text-slate-500 font-medium">
+                <div class="flex items-center gap-x-1">
+                    <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                    READY TO USE
+                </div>
+                <div class="h-3 w-px bg-slate-200"></div>
+                SINGLE-FILE • OFFLINE • NO INSTALLATION
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8">
+            
+            <!-- Input Form -->
+            <div class="lg:col-span-7 bg-white rounded-3xl shadow-sm border border-slate-100 p-8 card">
+                <h2 class="text-lg font-semibold text-slate-800 mb-6 flex items-center gap-x-2">
+                    <span>Input Parameters</span>
+                    <span class="text-emerald-500 text-sm font-medium px-3 py-px bg-emerald-100 rounded-3xl">Required fields</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="input-grid">
+                    
+                    <!-- Currency -->
+                    <div>
+                        <label class="input-label flex items-center gap-x-1 mb-1.5">
+                            Currency Unit
+                            <span class="text-slate-400 text-xs">(default ₱)</span>
+                        </label>
+                        <div class="relative">
+                            <input 
+                                type="text" 
+                                id="currency"
+                                value="₱"
+                                maxlength="8"
+                                class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-0 rounded-2xl px-5 py-4 text-2xl font-semibold text-slate-900 placeholder:text-slate-300">
+                        </div>
+                    </div>
+                    
+                    <!-- Distance -->
+                    <div>
+                        <label class="input-label mb-1.5 block">Distance Travelled (km)</label>
+                        <input 
+                            type="number" 
+                            id="distance"
+                            step="0.1"
+                            min="0"
+                            placeholder="0"
+                            class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-0 rounded-2xl px-5 py-4 text-2xl font-semibold text-slate-900">
+                    </div>
+                    
+                    <!-- Fuel Consumed -->
+                    <div>
+                        <label class="input-label mb-1.5 block">Fuel Consumed (L)</label>
+                        <input 
+                            type="number" 
+                            id="fuel"
+                            step="0.01"
+                            min="0"
+                            placeholder="0"
+                            class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-0 rounded-2xl px-5 py-4 text-2xl font-semibold text-slate-900">
+                    </div>
+                    
+                    <!-- Energy Used -->
+                    <div>
+                        <label class="input-label mb-1.5 block">Energy Used (kWh)</label>
+                        <input 
+                            type="number" 
+                            id="energy"
+                            step="0.01"
+                            min="0"
+                            placeholder="0"
+                            class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-0 rounded-2xl px-5 py-4 text-2xl font-semibold text-slate-900">
+                    </div>
+                    
+                    <!-- RON -->
+                    <div>
+                        <label class="input-label mb-1.5 block">Gasoline RON</label>
+                        <input 
+                            type="number" 
+                            id="ron"
+                            value="95"
+                            step="1"
+                            min="90"
+                            max="102"
+                            class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-0 rounded-2xl px-5 py-4 text-2xl font-semibold text-slate-900">
+                    </div>
+                    
+                    <!-- Fuel Price -->
+                    <div>
+                        <label class="input-label mb-1.5 block">Gasoline Price per L</label>
+                        <div class="relative">
+                            <span id="fuel-currency-symbol" class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-semibold text-slate-400">₱</span>
+                            <input 
+                                type="number" 
+                                id="fuel_price"
+                                step="0.01"
+                                min="0"
+                                placeholder="0.00"
+                                class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-0 rounded-2xl pl-12 pr-5 py-4 text-2xl font-semibold text-slate-900">
+                        </div>
+                    </div>
+                    
+                    <!-- Electricity Price -->
+                    <div>
+                        <label class="input-label mb-1.5 block">Electricity Price per kWh</label>
+                        <div class="relative">
+                            <span id="elec-currency-symbol" class="absolute left-5 top-1/2 -translate-y-1/2 text-2xl font-semibold text-slate-400">₱</span>
+                            <input 
+                                type="number" 
+                                id="elec_price"
+                                step="0.01"
+                                min="0"
+                                placeholder="0.00"
+                                class="w-full bg-slate-50 border border-slate-200 focus:border-blue-500 focus:ring-0 rounded-2xl pl-12 pr-5 py-4 text-2xl font-semibold text-slate-900">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons - Stacked vertically with increased padding -->
+                <div class="mt-10 space-y-4">
+                    <button onclick="calculateResults()" 
+                            class="w-full bg-blue-600 hover:bg-blue-700 active:scale-[0.97] transition-all text-white font-semibold text-xl py-7 px-8 rounded-3xl flex items-center justify-center gap-x-4 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894L18 21H6l-2.236-8.106A2 2 0 015.236 10H10" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14H5.236a2 2 0 01-1.789-2.894L6 3h12l2.236 8.106A2 2 0 0118.764 14H14" />
+                        </svg>
+                        CALCULATE
+                    </button>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="resetForm()" 
+                                class="w-full border border-slate-200 hover:bg-slate-50 active:scale-[0.97] transition-all font-medium text-slate-700 py-5 px-8 rounded-3xl text-lg">
+                            Reset
+                        </button>
+                        
+                        <button onclick="loadExample()" 
+                                class="w-full border border-slate-200 hover:bg-slate-50 active:scale-[0.97] transition-all font-medium text-slate-700 py-5 px-8 rounded-3xl text-lg">
+                            Load Example Trip
+                        </button>
+                    </div>
+                </div>
+                
+                <p class="text-xs text-slate-400 text-center mt-8">
+                    Formulae applied exactly as specified: RON multiplier, adjusted fuel, electric-to-gasoline equivalence (LHV = 32.4 MJ/L), total equivalent volume, and cost calculation.
+                </p>
+            </div>
+            
+            <!-- Results Panel -->
+            <div class="lg:col-span-5 bg-white rounded-3xl shadow-sm border border-slate-100 p-8 flex flex-col card" id="results-panel">
+                
+                <div id="results-empty" class="flex-1 flex flex-col items-center justify-center text-center py-12">
+                    <div class="w-16 h-16 bg-slate-100 rounded-2xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-slate-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2 2 2 0 01-2-2 2 2 0 01-2-2 2 2 0 012-2zm10-10v6a2 2 0 01-2 2h-2a2 2 0 01-2-2v-6a2 2 0 012-2h2a2 2 0 012 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold text-slate-700">Results will appear here</h3>
+                    <p class="text-slate-400 text-sm max-w-[200px] mt-2">Enter your trip data and press CALCULATE to obtain combined fuel economy, total cost, and cost per kilometre.</p>
+                </div>
+                
+                <!-- Populated results (hidden by default) -->
+                <div id="results-content" class="hidden flex-1">
+                    <h2 class="text-lg font-semibold text-slate-800 mb-6">Calculation Results</h2>
+                    
+                    <!-- Combined Fuel Economy -->
+                    <div class="bg-emerald-50 border border-emerald-100 rounded-3xl p-8 mb-8">
+                        <div class="flex justify-between">
+                            <div>
+                                <div class="uppercase text-emerald-700 text-xs font-medium tracking-widest">Combined Fuel Economy</div>
+                                <div id="fe-value" class="result-value text-emerald-700">0.00 km/L</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-emerald-600 text-sm font-medium">RON-adjusted gasoline equivalent</div>
+                                <div id="l-eq-value" class="font-mono text-emerald-600 text-lg mt-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Costs - Stacked vertically -->
+                    <div class="flex flex-col gap-6">
+                        <div class="bg-slate-50 rounded-3xl p-8">
+                            <div class="text-slate-500 text-sm">Total Trip Cost</div>
+                            <div id="total-cost-value" class="result-value text-slate-900 mt-3">₱0.00</div>
+                        </div>
+                        <div class="bg-slate-50 rounded-3xl p-8">
+                            <div class="text-slate-500 text-sm">Cost per km</div>
+                            <div id="cost-per-km-value" class="result-value text-slate-900 mt-3">₱0.0000</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Detailed breakdown -->
+                    <div class="mt-10">
+                        <button onclick="toggleBreakdown()" 
+                                class="flex w-full items-center justify-between text-sm font-medium text-slate-700 hover:text-slate-900">
+                            <span>View detailed breakdown (RON multiplier, energy equivalence, etc.)</span>
+                            <span id="breakdown-chevron" class="transition-transform">▼</span>
+                        </button>
+                        
+                        <div id="breakdown" class="hidden mt-4 text-sm bg-slate-50 rounded-3xl p-7 space-y-5 text-slate-600">
+                            <div class="flex justify-between">
+                                <span>RON Efficiency Multiplier (η_RON)</span>
+                                <span id="eta-ron" class="font-mono font-medium">1.0000</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>RON-adjusted fuel consumption (L_adj)</span>
+                                <span id="l-adj" class="font-mono font-medium">0.0000 L</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Battery energy → gasoline equivalent (L_elec)</span>
+                                <span id="l-elec" class="font-mono font-medium">0.0000 L</span>
+                            </div>
+                            <div class="flex justify-between border-t pt-5">
+                                <span class="font-semibold text-slate-700">Total equivalent fuel (L_eq)</span>
+                                <span id="l-eq" class="font-mono font-semibold text-slate-700">0.0000 L</span>
+                            </div>
+                            <div class="text-xs text-slate-400 pt-4 border-t">
+                                Electricity equivalence uses LHV of gasoline = 32.4 MJ/L and 1 kWh = 3.6 MJ → factor of 9.0
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer note -->
+        <div class="mt-12 text-center text-xs text-slate-400 flex flex-col items-center justify-center gap-y-1">
+            <div class="flex items-center justify-center gap-x-2">
+                <span>Formulas applied precisely as provided</span>
+                <span class="w-px h-3 bg-slate-200"></span>
+                <span>DM-i thermal efficiency (43.04% for 1st Generation; 46.06% for 5th Generation) is for reference only and has no impact on the calculations</span>
+            </div>
+            <div class="flex items-center justify-center gap-x-2">
+                <span>Save this file as <strong>dmi-calculator.html</strong> and open in any browser</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Tailwind CSS initialization for the single-file app
+         */
+        function initializeTailwind() {
+            return {
+                config(userConfig = {}) {
+                    return {
+                        configUser: userConfig,
+                        theme: {
+                            extend: {},
+                        },
+                    }
+                },
+                theme: {
+                    extend: {},
+                },
+            }
+        }
+
+        /**
+         * Main calculation function following the exact methodology provided
+         */
+        function calculateResults() {
+            // Read inputs
+            const currencyInput = document.getElementById('currency').value.trim() || '₱';
+            const distance = parseFloat(document.getElementById('distance').value);
+            const fuelL = parseFloat(document.getElementById('fuel').value);
+            const energyKwh = parseFloat(document.getElementById('energy').value);
+            const ron = parseFloat(document.getElementById('ron').value);
+            const fuelPrice = parseFloat(document.getElementById('fuel_price').value);
+            const elecPrice = parseFloat(document.getElementById('elec_price').value);
+
+            // Validation
+            if (isNaN(distance) || isNaN(fuelL) || isNaN(energyKwh) || isNaN(ron) || isNaN(fuelPrice) || isNaN(elecPrice)) {
+                alert('Please enter valid numeric values in all fields before calculating.');
+                return;
+            }
+            if (distance <= 0) {
+                alert('Distance travelled must be greater than zero.');
+                return;
+            }
+
+            // Step 1: RON efficiency multiplier
+            const etaRON = 1 + 0.003 * (ron - 92);
+
+            // Step 2: RON-adjusted fuel consumption
+            const lAdj = fuelL / etaRON;
+
+            // Step 3: Convert battery energy to equivalent liters
+            const lElec = energyKwh / 9.0;
+
+            // Step 4: Total equivalent fuel and combined economy
+            const lEq = lAdj + lElec;
+            const combinedFE = distance / lEq;
+
+            // Step 5: Cost formulas
+            const totalCost = (fuelL * fuelPrice) + (energyKwh * elecPrice);
+            const costPerKm = totalCost / distance;
+
+            // Update currency symbols in results
+            const symbols = document.querySelectorAll('#fuel-currency-symbol, #elec-currency-symbol');
+            symbols.forEach(el => el.textContent = currencyInput);
+
+            // Populate results panel
+            document.getElementById('results-empty').classList.add('hidden');
+            const content = document.getElementById('results-content');
+            content.classList.remove('hidden');
+
+            // Main results
+            document.getElementById('fe-value').innerHTML = `${combinedFE.toFixed(2)} <span class="text-2xl font-normal align-baseline ml-1">km/L</span>`;
+            document.getElementById('total-cost-value').innerHTML = `${currencyInput} ${totalCost.toFixed(2)}`;
+            document.getElementById('cost-per-km-value').innerHTML = `${currencyInput} ${costPerKm.toFixed(4)}`;
+            document.getElementById('l-eq-value').innerHTML = `${lEq.toFixed(4)} L equivalent`;
+
+            // Breakdown values
+            document.getElementById('eta-ron').textContent = etaRON.toFixed(4);
+            document.getElementById('l-adj').textContent = `${lAdj.toFixed(4)} L`;
+            document.getElementById('l-elec').textContent = `${lElec.toFixed(4)} L`;
+            document.getElementById('l-eq').textContent = `${lEq.toFixed(4)} L`;
+        }
+
+        /**
+         * Toggle detailed breakdown visibility
+         */
+        function toggleBreakdown() {
+            const breakdown = document.getElementById('breakdown');
+            const chevron = document.getElementById('breakdown-chevron');
+            
+            if (breakdown.classList.contains('hidden')) {
+                breakdown.classList.remove('hidden');
+                chevron.style.transform = 'rotate(180deg)';
+            } else {
+                breakdown.classList.add('hidden');
+                chevron.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        /**
+         * Reset all inputs to defaults
+         */
+        function resetForm() {
+            document.getElementById('currency').value = '₱';
+            document.getElementById('distance').value = '';
+            document.getElementById('fuel').value = '';
+            document.getElementById('energy').value = '';
+            document.getElementById('ron').value = '95';
+            document.getElementById('fuel_price').value = '';
+            document.getElementById('elec_price').value = '';
+            
+            // Reset results
+            document.getElementById('results-empty').classList.remove('hidden');
+            document.getElementById('results-content').classList.add('hidden');
+        }
+
+        /**
+         * Load a realistic example trip for immediate testing
+         */
+        function loadExample() {
+            document.getElementById('currency').value = '₱';
+            document.getElementById('distance').value = '285';
+            document.getElementById('fuel').value = '12.4';
+            document.getElementById('energy').value = '8.7';
+            document.getElementById('ron').value = '95';
+            document.getElementById('fuel_price').value = '58.75';
+            document.getElementById('elec_price').value = '9.85';
+            
+            // Auto-calculate
+            calculateResults();
+        }
+
+        /**
+         * Initialize the application when the page loads
+         */
+        window.onload = function() {
+            initializeTailwind();
+            
+            // Live currency symbol sync
+            const currencyField = document.getElementById('currency');
+            currencyField.addEventListener('input', function() {
+                const symbols = document.querySelectorAll('#fuel-currency-symbol, #elec-currency-symbol');
+                symbols.forEach(el => el.textContent = this.value.trim() || '₱');
+            });
+            
+            console.log('%c✅ DM-i Combined Fuel Economy Calculator initialized successfully. Ready for offline use.', 'color:#1e40af; font-size:13px; font-weight:600');
+        };
+    </script>
+</body>
+</html>
+
+<!-- Author: Rex Torres -->
+<!-- Made with Claude AI and Grok -->
